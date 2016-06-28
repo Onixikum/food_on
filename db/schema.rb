@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160622113901) do
+ActiveRecord::Schema.define(version: 20160625060318) do
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.decimal  "price",      precision: 8, scale: 2
+    t.integer  "food_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "products", ["food_type", "created_at"], name: "index_products_on_food_type_and_created_at"
 
   create_table "users", force: true do |t|
     t.string   "name"

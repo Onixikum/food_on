@@ -1,4 +1,8 @@
-<div class="center hero-unit">
-  <h1>Welcome to the FoodON</h1>
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-</div>
+<% if signed_in? %>
+
+<% else %>
+  <div class="center hero-unit">
+    <h1>Welcome to the FoodON</h1>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>

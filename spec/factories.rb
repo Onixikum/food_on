@@ -9,4 +9,10 @@ FactoryGirl.define do
       admin true
     end
   end
+
+  factory :product do
+    name "Cola"
+    price '8.99'
+    food_type '3'
+  end
 end

@@ -1,0 +1,75 @@
+<% provide(:title, 'Menu') %>
+<h1>Menu of the day!</h1>
+<%= form_tag do %>
+<div>
+<div style="float: left; width:33%">
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Main course</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @main_course.each do |product| %>
+      <tr>
+        <td><%= "#{product.name}" %></td>
+        <td><%= "#{product.price}$" %></td>
+        <td><%= radio_button_tag(:dish_1, "#{product.id}") %></td>
+      </tr> 
+    <% end %>
+  
+  </tbody>
+</table>
+</div>
+
+<div style="float: left; width:33%">
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Additional food</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @additional_food.each do |product| %>
+      <tr>
+        <td><%= "#{product.name}" %></td>
+        <td><%= "#{product.price}$" %></td>
+        <td><%= radio_button_tag(:dish_2, "#{product.id}") %></td>
+      </tr> 
+    <% end %>
+  
+  </tbody>
+</table>
+</div>
+
+<div style="float: left; width:33%">
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Beverages</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @beverages.each do |product| %>
+      <tr>
+        <td><%= "#{product.name}" %></td>
+        <td><%= "#{product.price}$" %></td>
+        <td><%= radio_button_tag(:dish_3, "#{product.id}") %></td>
+      </tr> 
+    <% end %>
+  
+  </tbody>
+</table>
+</div>
+</div><br><br><br>
+<%= submit_tag("To order!", class: "btn btn-large btn-primary") %>
+<% end %>
