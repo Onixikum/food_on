@@ -16,12 +16,13 @@ class OrdersController < ApplicationController
   end
 
   def show
-      @order = Order.find(params[:id])
+    @order = Order.find(params[:id])
+    order_info
   end
 
   def create
     @order = Order.new(order_params)
-    correct_order
+    corroct_order
   end
 
   private
