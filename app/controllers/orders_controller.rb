@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    corroct_order
+    correct_order
   end
 
   private
