@@ -1,3 +1,5 @@
+<% provide(:title, "Order #{@user.name}") %>
+
 <% if current_user.admin? or current_user.id == @order.user_id %>
   <%= render 'order_form' %>
 <% else %>
