@@ -1,0 +1,23 @@
+<div id="orders">
+  <h3 id="month">
+    <%= link_to "<", date: @date.prev_month %>
+    <%= @date.strftime("%B %Y") %>
+    <%= link_to ">", date: @date.next_month %>  
+  </h3>
+  <%= calendar @date do |date| %>
+    <%= date.day %>
+    <% n = 0 %>
+    <% @orders.each do |order| %>
+      <% if "#{order.created_at.strftime("%Y-%m-%d")}" == "#{date}" %>
+        <ul>
+          <li>
+            <%= link_to "Time of order", order %>
+            <%= link_to "#{order.created_at.strftime("%I:%M%p")}", order %>
+            <%= link_to "Price:#{@array_price[n]} $", order %>
+          </li>
+        </ul>
+        <% n += 1 %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

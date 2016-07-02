@@ -1,11 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :signed_in_user, only: [:new, :create]
   before_action :admin_user, only: [:new, :create]
-
-  def index
-    @main_course = Product.where(food_type: 1)
-    @additional_food = Product.where(food_type: 2)
-    @beverages = Product.where(food_type: 3)
-  end
 
   def new
     @product = Product.new
@@ -15,7 +10,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     if @product.save
       flash[:success] = "Add product!"
-      redirect_to products_path
+      redirect_to root_path
     else
       render 'new'
     end

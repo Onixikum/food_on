@@ -9,6 +9,14 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @orders = Order.where(user_id: @user.id)
+    @array_price = []
+    @orders.each do |order|
+      @order = order
+      order_info
+      array_price
+    end
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
   def new

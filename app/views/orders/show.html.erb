@@ -1,0 +1,5 @@
+<% if current_user.admin? or current_user.id == @order.user_id %>
+  <%= render 'order_form' %>
+<% else %>
+  <%= controller.redirect_to root_path %>
+<% end %>

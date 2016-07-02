@@ -1,0 +1,28 @@
+<% provide(:title, "List order") %>
+
+<div class="row">
+  <div class="span6 offset3">
+  <h3>Today's order</h3>
+  <h4><%= "Total price: #{@total_price} $" %></h4>
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Addres</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% n = 0 %>
+  <% @orders.each do |order| %>
+    <tr>
+      <td><%= link_to "#{@array_users[n]}", order %></td>
+      <td><%= link_to "#{order.address}", order %></td>
+      <td><%= link_to "#{@array_price[n]} $", order %></td>
+    </tr>
+    <% n += 1 %>
+  <% end %>
+  </tbody>
+</table>
+  </div>
+</div>

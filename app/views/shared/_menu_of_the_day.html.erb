@@ -1,0 +1,81 @@
+<h1>Menu of the day!</h1>
+<%= form_for @order, url: {controller: "orders", action: "create"} do |f| %>
+<div>
+<div style="float: left; width:33%">
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Main course</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @main_course.each do |product| %>
+      <tr>
+        <td><%= "#{product.name}" %></td>
+        <td><%= "#{product.price} $" %></td>
+        <td><%= f.radio_button(:dish1_id, "#{product.id}") %></td>
+      </tr> 
+    <% end %>
+  
+  </tbody>
+</table>
+</div>
+
+<div style="float: left; width:33%">
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Additional food</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @additional_food.each do |product| %>
+      <tr>
+        <td><%= "#{product.name}" %></td>
+        <td><%= "#{product.price} $" %></td>
+        <td><%= f.radio_button(:dish2_id, "#{product.id}") %></td>
+      </tr> 
+    <% end %>
+  
+  </tbody>
+</table>
+</div>
+
+<div style="float: left; width:33%">
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Beverages</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @beverages.each do |product| %>
+      <tr>
+        <td><%= "#{product.name}" %></td>
+        <td><%= "#{product.price} $" %></td>
+        <td><%= f.radio_button(:dish3_id, "#{product.id}") %></td>
+      </tr> 
+    <% end %>
+  
+  </tbody>
+</table>
+</div>
+</div><br><br><br>
+<div class="row">
+  <div class="span6 offset3">
+    <%= f.hidden_field :user_id, :value => @current_user.id %>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+    <%= submit_tag("To order!", class: "btn btn-large btn-primary") %>
+  </div>
+</div>
+<% end %>

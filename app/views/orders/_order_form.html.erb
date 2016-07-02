@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="span6 offset3">
+
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Letter order</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= "User name:" %></td>
+      <td><%= "#{@user.name}" %></td>
+    </tr>
+    <tr>
+      <td><%= "Email:" %></td>
+      <td><%= "#{@user.email}" %></td>
+    </tr>
+    <tr>
+      <td><%= "Address:" %></td>
+      <td><%= "#{@order.address}" %></td>
+    </tr>
+  </tbody>
+</table>
+    
+
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= "#{@main_course.name}" %></td>
+        <td><%= "#{@main_course.price} $" %></td>
+      </tr> 
+      <tr>
+        <td><%= "#{@additional_food.name}" %></td>
+        <td><%= "#{@additional_food.price} $" %></td>
+      </tr> 
+      <tr>
+        <td><%= "#{@beverages.name}" %></td>
+        <td><%= "#{@beverages.price} $" %></td>
+      </tr> 
+      <tr>
+        <td><%=  %></td>
+        <td><%= "Total: #{@total} $" %></td>
+      </tr>
+  </tbody>
+</table>
+
+<% if current_user.admin? %>
+  <%= link_to "Ok", orders_path, class: "btn btn-large btn-primary" %>
+<% else %>
+  <%= link_to "Ok", root_path, class: "btn btn-large btn-primary" %>
+<% end %>
+
+  </div>
+</div>

@@ -1,5 +1,13 @@
 <% provide(:title, 'Help') %>
+<% if signed_in? %>
 <div class="center hero-unit">
-	<h1>Help Info</h1>
-  <p></p>
-</div>
+    <h1>Help Info</h1>
+    <h3>We have the best food and lightning delivery!</h3>
+  </div>
+<% else %>
+  <div class="center hero-unit">
+    <h1>Help Info</h1>
+    <h3>Register or log in to order food.</h3>
+    <h3>The most delicious food awaits you!</h3>
+  </div>
+<% end %>
