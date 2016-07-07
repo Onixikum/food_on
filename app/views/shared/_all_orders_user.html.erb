@@ -11,8 +11,7 @@
       <% if "#{order.created_at.strftime("%Y-%m-%d")}" == "#{date}" %>
         <ul>
           <li>
-            <%= link_to "Time of order", order %>
-            <%= link_to "#{order.created_at.strftime("%I:%M%p")}", order %>
+            <%= link_to "#{@array_company[n]}", order %>
             <%= link_to "Price:#{@array_price[n]} $", order %>
           </li>
         </ul>

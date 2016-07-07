@@ -1,0 +1,14 @@
+<% provide(:title, "Add company") %>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@company) do |f| %>
+    <%= render 'shared/error_messages_company' %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.submit "Add company!", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

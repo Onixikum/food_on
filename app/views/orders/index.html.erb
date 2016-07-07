@@ -9,6 +9,7 @@
     <tr>
       <th>Email</th>
       <th>Address</th>
+      <th>Company</th>
       <th>Price</th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
     <tr>
       <td><%= link_to "#{@array_users[n]}", order %></td>
       <td><%= link_to "#{order.address}", order %></td>
+      <td><%= link_to "#{@array_company[n]}", order %></td>
       <td><%= link_to "#{@array_price[n]} $", order %></td>
     </tr>
     <% n += 1 %>

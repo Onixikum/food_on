@@ -1,0 +1,41 @@
+<h1>Choose where to order food</h1>
+<%= form_tag({controller: "orders", action: "new"}, method: "get") do %>
+
+<div style="float: left; width:60%">
+  <table class="table table-condensed">
+    <tbody>
+
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= "#{company.name}" %></td>
+        <td><%= radio_button_tag(:company_id, "#{company.id}") %></td>
+      </tr> 
+    <% end %>
+  
+    </tbody>
+  </table>
+</div>
+
+<div style="float: right; width:30%">
+<table class="table table-condensed">
+  <tbody>
+
+    <tr>
+      <td><%= "Menu of the day:" %></td>
+      <td><%= radio_button_tag(:menu_type, 'day', :checked => 'checked') %></td>
+    </tr>
+
+    <tr>
+      <td><%= "Menu of the week:" %></td>
+      <td><%= radio_button_tag(:menu_type, 'week') %></td>
+    </tr> 
+  
+  </tbody>
+</table>
+</div>
+<div class="row">
+  <div class="span6 offset3">
+    <%= submit_tag("Vote in!", class: "btn btn-large btn-primary") %>
+    <% end %>
+  </div>
+</div>

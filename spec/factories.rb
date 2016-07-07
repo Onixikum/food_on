@@ -11,16 +11,22 @@ FactoryGirl.define do
   end
 
   factory :product do
-    name      "Cola"
-    price     '8.99'
-    food_type '3'
+    name       "Cola"
+    price      '8.99'
+    food_type  '3'
+    company_id '1'
   end
 
   factory :order do
-    dish1_id '1'
-    dish2_id '2'
-    dish3_id '3'
-    user_id  '1'
-    address  "Lviv"
+    dish1_id   '1'
+    dish2_id   '2'
+    dish3_id   '3'
+    user_id    '1'
+    address    "Lviv"
+    company_id '1'
+  end
+
+  factory :company do
+    name 'conpany-1'
   end
 end

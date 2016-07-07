@@ -13,6 +13,7 @@ describe Order do
   it { should respond_to(:dish3_id) }
   it { should respond_to(:user_id) }
   it { should respond_to(:address) }
+  it { should respond_to(:company_id) }
 
   it { should be_valid }
 
@@ -43,6 +44,11 @@ describe Order do
 
   describe "with product name that is too long" do
     before { @order.address = "a" * 26 }
+    it { should_not be_valid }
+  end
+
+  describe "when company id is not present" do
+    before { @order.company_id = nil }
     it { should_not be_valid }
   end
 end

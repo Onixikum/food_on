@@ -6,4 +6,5 @@ class Order < ActiveRecord::Base
   validates :dish3_id, presence: true
   validates :user_id, presence: true
   validates :address, presence: true, length: { maximum: 25 }
+  validates :company_id, presence: true
 end

@@ -11,10 +11,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @orders = Order.where(user_id: @user.id)
     @array_price = []
+    @array_company = []
     @orders.each do |order|
       @order = order
       order_info
       array_price
+      array_company
     end
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Product do
 
   before do
-   @product = FactoryGirl.create(:product)
+    @product = FactoryGirl.create(:product)
   end
 
   subject { @product }
@@ -11,6 +11,7 @@ describe Product do
   it { should respond_to(:name) }
   it { should respond_to(:price) }
   it { should respond_to(:food_type) }
+  it { should respond_to(:company_id) }
 
   it { should be_valid }
 
@@ -26,6 +27,11 @@ describe Product do
 
   describe "when food type is not present" do
     before { @product.food_type = nil }
+    it { should_not be_valid }
+  end
+
+  describe "when company is not present" do
+    before { @product.company_id = nil }
     it { should_not be_valid }
   end
 
