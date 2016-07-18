@@ -1,10 +1,7 @@
-class StaticPagesController < ApplicationController
-
+class StaticPagesController < ApplicationController # :nodoc:
   def home
-    @companies = Company.all
   end
 
   def help
-  	
-  end  
+  end
 end

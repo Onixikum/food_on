@@ -1,6 +1,10 @@
 class CompaniesController < ApplicationController # :nodoc:
-  before_action :signed_in_user, only: [:new, :create]
+  before_action :signed_in_user, only: [:index, :new, :create]
   before_action :admin_user, only: [:new, :create]
+
+  def index
+    @companies = Company.all
+  end
 
   def new
     @company = Company.new
@@ -12,7 +16,7 @@ class CompaniesController < ApplicationController # :nodoc:
       flash[:success] = 'Add company!'
       redirect_to root_path
     else
-      render 'new'
+      render :new
     end
   end
 
