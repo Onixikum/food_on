@@ -40,6 +40,9 @@ GEM
     bootstrap-will_paginate (0.0.9)
       will_paginate
     builder (3.1.4)
+    bullet (5.1.1)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.10.0)
     capybara (2.7.1)
       addressable
       mime-types (>= 1.16)
@@ -102,6 +105,9 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
+    guard-rubocop (1.2.0)
+      guard (~> 2.0)
+      rubocop (~> 0.20)
     guard-spork (2.1.0)
       childprocess (>= 0.2.3)
       guard (~> 2.0)
@@ -270,6 +276,7 @@ GEM
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     unicode-display_width (1.1.0)
+    uniform_notifier (1.10.0)
     websocket (1.2.3)
     will_paginate (3.0.4)
     xpath (2.0.0)
@@ -282,6 +289,7 @@ DEPENDENCIES
   bcrypt-ruby (= 3.1.2)
   bootstrap-sass (= 2.3.2.0)
   bootstrap-will_paginate (= 0.0.9)
+  bullet
   capybara (>= 2.2.0)
   childprocess (>= 0.5.9)
   coffee-rails (= 4.0.1)
@@ -290,6 +298,7 @@ DEPENDENCIES
   factory_girl_rails (= 4.2.1)
   faker (= 1.1.2)
   guard-rspec (>= 4.6.0)
+  guard-rubocop
   guard-spork (>= 1.5.0)
   jbuilder (= 1.0.2)
   jquery-rails (= 3.0.4)

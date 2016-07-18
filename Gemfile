@@ -18,6 +18,8 @@ group :development, :test do
   gem 'childprocess', '>=0.5.9'
   gem 'multi_test', '>=0.1.2'
   gem 'rubocop', require: false
+  gem 'guard-rubocop'
+  gem 'bullet'
 end
 
 group :test do

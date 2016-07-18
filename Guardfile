@@ -49,3 +49,7 @@ guard 'rspec', all_after_pass: false, cmd: 'rspec' do
     "spec/requests/authentication_pages_spec.rb"
   end
 end
+
+guard :rubocop, all_on_start: false, cli: ['--out', 'log/rubocop.log'] do
+  watch(%r{^(.+)\.rb$}) { |m| "#{m[1]}.rb" }
+end

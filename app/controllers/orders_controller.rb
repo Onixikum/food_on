@@ -1,19 +1,11 @@
-class OrdersController < ApplicationController
+class OrdersController < ApplicationController # :nodoc:
   before_action :signed_in_user, only: [:index, :show, :new, :create]
   before_action :admin_user,     only: :index
 
   def index
-    @orders = Order.where(created_at: Time.now.midnight..(Time.now.midnight + 1.day))
-    @array_price = []
-    @array_users = []
-    @array_company = []
-    @orders.each do |order|
-      @order = order
-      order_info
-      array_email
-      array_price
-      array_company
-    end
+    @orders = Order.where(created_at:
+                          Time.now.midnight..(Time.now.midnight + 1.day))
+    list_orders_today
     total_price
   end
 
@@ -36,8 +28,8 @@ class OrdersController < ApplicationController
 
   private
 
-    def order_params
-      params.require(:order).permit(:dish1_id, :dish2_id, :dish3_id, 
-                                    :user_id, :address, :company_id)
-    end
+  def order_params
+    params.require(:order).permit(:dish1_id, :dish2_id, :dish3_id,
+                                  :user_id, :address, :company_id)
+  end
 end
