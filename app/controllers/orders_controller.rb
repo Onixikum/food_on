@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController # :nodoc:
   before_action :signed_in_user, only: [:index, :show, :new, :create]
-  before_action :correct_user,   only: [:new, :create]
   before_action :admin_user,     only: :index
 
   def index
