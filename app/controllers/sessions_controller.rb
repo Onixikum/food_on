@@ -1,7 +1,5 @@
-class SessionsController < ApplicationController
-
+class SessionsController < ApplicationController # :nodoc:
   def new
-    
   end
 
   def create

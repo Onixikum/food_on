@@ -10,7 +10,6 @@ class UsersController < ApplicationController # :nodoc:
   def show
     @user = User.find(params[:id])
     @orders = @user.orders
-    list_orders_user
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 

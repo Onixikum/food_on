@@ -78,7 +78,7 @@
   <div class="span6 offset3">
     <%= f.hidden_field :user_id, :value => @current_user.id %>
     <% company_fix %>
-    <%= f.hidden_field :company_id, :value => @company_id %>
+    <%= f.hidden_field :company_id, :value => @company.id %>
     <%= f.label :address %>
     <%= f.text_field :address %>
     <%= submit_tag("To order!", class: "btn btn-large btn-primary") %>

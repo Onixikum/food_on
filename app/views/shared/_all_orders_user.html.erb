@@ -6,16 +6,15 @@
   </h3>
   <%= calendar @date do |date| %>
     <%= date.day %>
-    <% n = 0 %>
     <% @orders.each do |order| %>
       <% if "#{order.created_at.strftime("%Y-%m-%d")}" == "#{date}" %>
         <ul>
           <li>
-            <%= link_to "#{@array_company[n]}", order %>
-            <%= link_to "Price:#{@array_price[n]} $", order %>
+            <% summary_of_the(order) %>
+            <%= link_to "#{@company.name}", order %><br>
+            <%= link_to "Price:#{@total} $", order %>
           </li>
         </ul>
-        <% n += 1 %>
       <% end %>
     <% end %>
   <% end %>

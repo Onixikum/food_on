@@ -10,7 +10,7 @@ class ProductsController < ApplicationController # :nodoc:
     @product = Product.new(product_params)
     if @product.save
       flash[:success] = 'Add product!'
-      redirect_to root_path
+      redirect_to companies_path
     else
       render :new
     end

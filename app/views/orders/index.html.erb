@@ -3,7 +3,7 @@
 <div class="row">
   <div class="span6 offset3">
   <h3>Today's order</h3>
-  <h4><%= "Total price: #{@total_price} $" %></h4>
+
 <table class="table table-condensed">
   <thead>
     <tr>
@@ -14,17 +14,25 @@
     </tr>
   </thead>
   <tbody>
-  <% n = 0 %>
+  <% total_price = 0 %>
   <% @orders.each do |order| %>
     <tr>
-      <td><%= link_to "#{@array_users[n]}", order %></td>
+      <% info_to(order) %>
+      <td><%= link_to "#{@user.email}", order %></td>
       <td><%= link_to "#{order.address}", order %></td>
-      <td><%= link_to "#{@array_company[n]}", order %></td>
-      <td><%= link_to "#{@array_price[n]} $", order %></td>
+      <td><%= link_to "#{@company.name}", order %></td>
+      <td><%= link_to "#{@total} $", order %></td>
+      <% total_price += @total %>
     </tr>
-    <% n += 1 %>
   <% end %>
+    <tr>
+      <th></th>
+      <th></th>
+      <th><h4>Total price:</h4></th>
+      <th><h4><%= "#{total_price} $" %></h4></th>
+    </tr>
   </tbody>
 </table>
+
   </div>
 </div>

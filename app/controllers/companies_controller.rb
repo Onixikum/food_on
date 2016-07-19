@@ -14,7 +14,7 @@ class CompaniesController < ApplicationController # :nodoc:
     @company = Company.new(company_params)
     if @company.save
       flash[:success] = 'Add company!'
-      redirect_to root_path
+      redirect_to companies_path
     else
       render :new
     end
